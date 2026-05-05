@@ -5,60 +5,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kong Iconography</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300;400;800&family=Roboto+Mono:wght@400;700&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300;400;700;800&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    /* ─── Kong Design System — Brand Foundations v1.2 ─────────────────────── */
     :root {
-      --kong-dark-green: #000F06;
-      --kong-electric-lime: #CCFF00;
-      --kong-bay: #B7BDB5;
-      --kong-white: #FFFFFF;
-      --kong-gray-50: #E7EDE5;
-      --kong-gray-100: #D7DED4;
-      --kong-gray-200: #CDD4CB;
-      --kong-gray-400: #A1A69F;
-      --kong-gray-500: #858983;
-      --kong-gray-600: #676B66;
-      --kong-gray-700: #4A4D49;
-      --kong-gray-800: #2D2E2C;
-      --kong-gray-900: #101110;
-      --font-primary: "Funnel Sans", sans-serif;
-      --font-code: "Roboto Mono", monospace;
-      --font-button: "Space Grotesk", sans-serif;
+      /* Primary Palette */
+      --kong-navy:          #001408;   /* "Navy Green" / Dark theme bg */
+      --kong-lime:          #CCFF00;   /* Electric Lime — primary accent */
+      --kong-bay:           #CDD4CB;   /* Bay — neutral / secondary text */
+      --kong-white:         #FFFFFF;
+
+      /* Grayscale (warm-green tint) */
+      --kong-gray-50:       #E7EDE5;
+      --kong-gray-100:      #D7DED4;
+      --kong-gray-200:      #CDD4CB;
+      --kong-gray-300:      #B7BDB5;
+      --kong-gray-400:      #A1A69F;
+      --kong-gray-500:      #858983;
+      --kong-gray-600:      #676B66;
+      --kong-gray-700:      #4A4D49;
+      --kong-gray-800:      #2D2E2C;
+      --kong-gray-900:      #101110;
+
+      /* Typography */
+      --font-primary:       "Funnel Sans", system-ui, sans-serif;
+      --font-code:          "Roboto Mono", monospace;
+
+      /* Spacing (8px base) */
+      --space-1:  8px;
+      --space-2:  16px;
+      --space-3:  24px;
+      --space-4:  32px;
+      --space-6:  48px;
+      --space-8:  64px;
+
+      /* Border Radius */
+      --radius-card:   8px;
+      --radius-pill:   999px;
+      --radius-code:   4px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: var(--font-primary);
-      background-color: var(--kong-dark-green);
+      background-color: var(--kong-navy);
       color: var(--kong-white);
       min-height: 100vh;
+      /* Subtle blueprint grid overlay at ~10% opacity */
+
     }
 
-
-
+    /* ─── Layout ──────────────────────────────────────────────────────────── */
     .container {
       position: relative;
       z-index: 1;
       max-width: 1280px;
       margin: 0 auto;
-      padding: 0 32px;
+      padding: 0 var(--space-4);
     }
 
-    /* Header */
+    /* ─── Header ──────────────────────────────────────────────────────────── */
     header {
-      padding: 48px 0 40px;
-      border-bottom: 1px solid rgba(204,255,0,0.15);
+      padding: var(--space-6) 0 40px;
+      border-bottom: 1px solid rgba(204, 255, 0, 0.15);
     }
 
     .header-inner {
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
-      gap: 24px;
+      gap: var(--space-3);
       flex-wrap: wrap;
     }
 
+    /* Logo lockup: Kong wordmark + vertical rule + section label */
     .logo-lockup {
       display: flex;
       align-items: center;
@@ -69,7 +90,7 @@
       font-family: var(--font-primary);
       font-weight: 800;
       font-size: 22px;
-      color: var(--kong-electric-lime);
+      color: var(--kong-lime);
       letter-spacing: -0.5px;
     }
 
@@ -79,24 +100,38 @@
       background: var(--kong-gray-600);
     }
 
+    /* Section label: brand spec — uppercase, 11px, 0.1em spacing */
     .section-label {
       font-family: var(--font-primary);
-      font-weight: 300;
-      font-size: 16px;
+      font-weight: 700;
+      font-size: 11px;
       color: var(--kong-bay);
-      letter-spacing: 0.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
 
+    /* Tagline */
+    .kong-tagline {
+      font-family: var(--font-primary);
+      font-weight: 300;
+      font-size: 13px;
+      color: var(--kong-gray-500);
+      letter-spacing: 0.02em;
+      margin-top: 6px;
+    }
+
+    /* Page title: Heading XL — 800 weight */
     .page-title {
       font-family: var(--font-primary);
       font-weight: 800;
       font-size: 48px;
       line-height: 1.05;
-      color: var(--kong-electric-lime);
+      color: var(--kong-lime);
       letter-spacing: -1px;
       margin-top: 20px;
     }
 
+    /* Subtitle: Body L */
     .page-subtitle {
       font-size: 16px;
       color: var(--kong-bay);
@@ -104,7 +139,7 @@
       font-weight: 300;
     }
 
-    /* Controls bar */
+    /* ─── Controls bar ────────────────────────────────────────────────────── */
     .controls {
       padding: 28px 0;
       display: flex;
@@ -133,20 +168,26 @@
 
     .search-input {
       width: 100%;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(204,255,0,0.18);
-      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(204, 255, 0, 0.18);
+      border-radius: 0;
       padding: 10px 14px 10px 40px;
       font-family: var(--font-primary);
       font-size: 14px;
       color: var(--kong-white);
       outline: none;
-      transition: border-color 0.15s;
+      transition: border-color 0.15s, box-shadow 0.15s;
     }
 
     .search-input::placeholder { color: var(--kong-gray-500); }
-    .search-input:focus { border-color: rgba(204,255,0,0.5); }
 
+    .search-input:focus {
+      border-color: rgba(204, 255, 0, 0.5);
+      /* Glow replaces drop-shadow per brand spec */
+      box-shadow: 0 0 0 3px rgba(204, 255, 0, 0.08);
+    }
+
+    /* Count badge — code font, section label treatment */
     .count-badge {
       font-family: var(--font-code);
       font-size: 12px;
@@ -156,35 +197,45 @@
     }
 
     .count-badge span {
-      color: var(--kong-electric-lime);
+      color: var(--kong-lime);
       font-weight: 700;
     }
 
-    /* Card grid */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 12px;
-    }
+    /* ─── Card Grid ───────────────────────────────────────────────────────── */
 
+    /* Card container — no radius, no gap, collapsed borders */
     .icon-card {
       position: relative;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 10px;
-      padding: 20px 14px 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 0;
+      /* Collapse adjacent borders: pull each card left+up by 1px */
+      margin-top: -1px;
+      margin-left: -1px;
+      padding: 40px 14px 14px;
+      min-height: 250px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
+      justify-content: flex-start;
+      gap: 0;
       cursor: default;
       transition: border-color 0.15s, background 0.15s, transform 0.12s;
     }
 
+    /* Offset the grid to compensate for the margin trick */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      /* Add 1px padding so the first row/col margin doesn't get clipped */
+      padding: 1px 0 0 1px;
+    }
+
     .icon-card:hover {
-      background: rgba(204,255,0,0.04);
-      border-color: rgba(204,255,0,0.2);
-      transform: translateY(-2px);
+      background: #001408;
+      border-color: rgba(204, 255, 0, 0.2);
+      box-shadow: 0 0 16px rgba(204, 255, 0, 0.06);
     }
 
     .icon-card:hover .card-actions {
@@ -192,32 +243,37 @@
       pointer-events: all;
     }
 
+    /* Icon wrapper */
     .card-icon-wrap {
-      width: 56px;
-      height: 56px;
-      border-radius: 8px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.06);
+      width: 90px;
+      height: 90px;
+      border-radius: var(--radius-card);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.06);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      margin-bottom: 20px;
     }
 
     .card-icon-wrap svg {
-      width: 32px;
-      height: 32px;
+      width: 48px;
+      height: 48px;
     }
 
+    /* Card info */
     .card-info {
       width: 100%;
       text-align: center;
+      margin-bottom: 10px;
     }
 
+    /* Card name: 700 weight, 16px */
     .card-name {
       font-family: var(--font-primary);
-      font-weight: 800;
-      font-size: 12px;
+      font-weight: 700;
+      font-size: 16px;
       color: var(--kong-white);
       white-space: nowrap;
       overflow: hidden;
@@ -225,20 +281,23 @@
       display: block;
     }
 
+    /* Theme badge — code font, uppercase label style */
     .card-theme {
       display: inline-block;
       margin-top: 5px;
       padding: 2px 7px;
-      border-radius: 3px;
+      border-radius: var(--radius-code);
       font-family: var(--font-code);
       font-size: 10px;
       font-weight: 700;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
     }
 
-    .theme-mono { background: rgba(183,189,181,0.12); color: var(--kong-bay); }
-    .theme-default { background: rgba(204,255,0,0.1); color: var(--kong-electric-lime); }
+    .theme-mono    { background: rgba(183, 189, 181, 0.12); color: var(--kong-bay); }
+    .theme-default { background: rgba(204, 255, 0, 0.10);   color: var(--kong-lime); }
 
+    /* Card actions — pinned to bottom */
     .card-actions {
       width: 100%;
       display: flex;
@@ -246,47 +305,53 @@
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.15s;
+      margin-top: auto;
     }
 
+    /* Buttons — brand spec: pill shape (999px), Funnel Sans Bold 700 */
     .action-btn {
-      font-family: var(--font-button);
+      font-family: var(--font-primary);
       font-size: 10px;
-      font-weight: 500;
+      font-weight: 700;
       padding: 5px 0;
-      border-radius: 4px;
+      border-radius: var(--radius-pill);
       cursor: pointer;
       transition: all 0.15s;
       white-space: nowrap;
       flex: 1;
       text-align: center;
+      letter-spacing: 0.02em;
     }
 
+    /* Copy SVG — lime outline pill */
     .copy-btn {
-      border: 1px solid rgba(204,255,0,0.3);
+      border: 1px solid rgba(204, 255, 0, 0.3);
       background: transparent;
-      color: var(--kong-electric-lime);
+      color: var(--kong-lime);
     }
 
     .copy-btn:hover {
-      background: rgba(204,255,0,0.12);
-      border-color: rgba(204,255,0,0.6);
+      background: rgba(204, 255, 0, 0.12);
+      border-color: rgba(204, 255, 0, 0.6);
+      box-shadow: 0 0 8px rgba(204, 255, 0, 0.15);
     }
 
     .copy-btn.copied {
-      background: rgba(204,255,0,0.15);
-      border-color: var(--kong-electric-lime);
-      color: var(--kong-electric-lime);
+      background: rgba(204, 255, 0, 0.15);
+      border-color: var(--kong-lime);
+      color: var(--kong-lime);
     }
 
+    /* PNG download — bay/gray outline pill */
     .png-btn {
-      border: 1px solid rgba(183,189,181,0.25);
+      border: 1px solid rgba(183, 189, 181, 0.25);
       background: transparent;
       color: var(--kong-bay);
     }
 
     .png-btn:hover {
-      background: rgba(183,189,181,0.08);
-      border-color: rgba(183,189,181,0.5);
+      background: rgba(183, 189, 181, 0.08);
+      border-color: rgba(183, 189, 181, 0.5);
       color: var(--kong-white);
     }
 
@@ -295,20 +360,20 @@
       cursor: default;
     }
 
-    /* Empty state */
+    /* ─── Empty state ─────────────────────────────────────────────────────── */
     .empty-state {
-      padding: 64px 20px;
+      padding: var(--space-8) 20px;
       text-align: center;
       color: var(--kong-gray-500);
       font-size: 14px;
       display: none;
     }
 
-    /* Footer */
+    /* ─── Footer ──────────────────────────────────────────────────────────── */
     footer {
-      padding: 32px 0 48px;
+      padding: var(--space-4) 0 var(--space-6);
       margin-top: 40px;
-      border-top: 1px solid rgba(255,255,255,0.06);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -350,14 +415,14 @@
       </svg>
       <input class="search-input" type="text" id="searchInput" placeholder="Search icons…" autocomplete="off">
     </div>
-    <div class="count-badge">Showing <span id="countDisplay">133</span> of 133 icons</div>
+    <div class="count-badge">Showing <span id="countDisplay">116</span> of 116 icons</div>
   </div>
 
   <div id="cardGrid" class="card-grid"></div>
   <div class="empty-state" id="emptyState">No icons match your search.</div>
 
   <footer>
-    <div class="footer-meta">Kong Inc. &middot; Iconography v1 &middot; <strong>133 icons</strong></div>
+    <div class="footer-meta">Kong Inc. &middot; Iconography v1 &middot; <strong>116 icons</strong></div>
     <div class="footer-meta">design@konghq.com</div>
   </footer>
 </div>
@@ -474,11 +539,13 @@ function renderCards(filtered) {
 
 searchInput.addEventListener("input", () => {
   const q = searchInput.value.trim().toLowerCase();
-  const filtered = q ? ICONS.filter(i => i.name.toLowerCase().includes(q) || (i.theme && i.theme.toLowerCase().includes(q))) : ICONS;
+  const base = ICONS.filter(i => !i.name.endsWith('-1'));
+  const filtered = q ? base.filter(i => i.name.toLowerCase().includes(q) || (i.theme && i.theme.toLowerCase().includes(q))) : base;
   renderCards(filtered);
 });
 
-renderCards(ICONS);
+renderCards(ICONS.filter(i => !i.name.endsWith('-1')));
 </script>
 </body>
+</html></body>
 </html>
